@@ -1,6 +1,9 @@
 import random
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
+
+TOKEN = os.getenv("TOKEN")
 
 # Список инструкций
 instructions = [
@@ -49,7 +52,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Запуск бота
 if __name__ == '__main__':
-    TOKEN = '7837437379:AAHKY359Xsns-j8Maw9tbIMMQeYJV3A5mdI'
+
 
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
